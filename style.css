@@ -1,5 +1,5 @@
 body {
-  font-family: 'Poppins';
+  font-family: 'Poppins', sans-serif;
   background-color: #f7f7f7;
   margin: 0;
   padding: 0;
@@ -9,21 +9,30 @@ body {
 }
 
 header {
-  text-align: left;
-  display: flex;
-  margin-top: 20px;
-}
-
-header img {
-  max-width: 100px;
+  display: none; /* Hide the old header */
 }
 
 .hero {
-  background: #f1f1f1;
-  padding: 40px 20px;
+  background: url('/images/background.png') no-repeat center center;
+  background-size: cover;
+  padding: 100px 20px 150px;
   width: 100%;
+  color: white;
   display: flex;
   justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.hero::before {
+  content: "CBV Rideshare";
+  position: absolute;
+  top: 20px;
+  left: 11%;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  z-index: 1;
 }
 
 .hero-content {
@@ -31,20 +40,37 @@ header img {
   justify-content: space-between;
   align-items: center;
   width: 80%;
+  padding-right: 5%;
+  z-index: 2; /* Ensuring content is above the pseudo-element */
 }
 
 .hero-text {
   max-width: 50%;
+  text-align: left;
+}
+
+.hero-text h2{
+  font-size: 52px;
+  font-weight: 700;
+}
+
+.hero-text p{
+  font-size: 16px;
+  font-weight: 400;
+  width: 80%;
 }
 
 .hero-form {
-  background: #e1e1e1;
+  background: rgba(255, 255, 255, 0.95);
   padding: 40px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 2%;
 }
 
 .hero-form h3 {
   margin-bottom: 20px;
+  color: black;
+  font-weight: 600;
 }
 
 #joinForm {
@@ -64,8 +90,8 @@ header img {
 #joinForm button {
   padding: 10px 10px;
   width: 100%;
-  background-color: black;
-  color: #fff;
+  background-color: #22C459;
+  color: white;
   border: none;
   border-radius: 5px;
   margin-top: 5%;
@@ -125,21 +151,48 @@ header img {
   stroke-dashoffset: 0;
 }
 
-.problem-statement, .pain-points, .user-quotes {
+.problem-statement {
   background: #fff;
   padding: 60px 20px;
   border-radius: 5px;
   text-align: center;
   margin: 50px 0;
+  width: 60%;
+}
+
+.problem-statement p {
+  color:#606060;
+  padding-top: 20px;
+  font-size: 24px;
+}
+
+.problem-statement h2 {
+  color:#288347;
+  padding-top: 20px;
+  font-size: 40px;
+  border-radius: 20px;
+}
+
+.pain-points,
+.user-quotes {
+  background: #fff;
+  padding: 80px 20px 100px;
+  border-radius: 5px;
+  text-align: center;
   width: 80%;
 }
 
+.user-quotes h2 {
+  color: #288347;
+  font-weight: 600;
+  font-size: 40px;
+}
+
 .pain-points {
-  background: #F8F8F8;
-  padding: 40px 20px;
+  background: black;
+  padding: 80px 20px 100px;
   border-radius: 0px;
   text-align: center;
-  margin: 20px 0;
   width: 100%;
 }
 
@@ -161,15 +214,31 @@ header img {
   padding-right: 0%;
 }
 
+.pain-point-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 60px;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
 .pain-point {
   background: #FDFCFA;
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 20px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  flex-basis: 30%;
+  flex-basis: calc(33.333% - 20px); /* Adjust the basis to fit three items per row */
   margin: 10px;
   text-align: left;
 }
+
+/* Ensuring the last row centers the two items */
+.pain-point:nth-last-child(-n+2) {
+  flex-basis: calc(50% - 20px);
+  margin-top: 20px; /* Add space between rows */
+}
+
 
 .quote {
   background: #f9f9f9;
@@ -181,17 +250,92 @@ header img {
   text-align: left;
 }
 
-.pain-point h3, .quote p {
+
+.pain-point h3,
+.quote p {
   margin: 0 0 10px;
+  color: #262626;
+  font-size: 18px;
+  font-weight: 500;
 }
 
-.pain-point a{
+.pain-points h2 {
+  color: white;
+  font-weight: 600;
+  font-size: 40px;
+}
+
+.problem-statement h2 {
+  color: #288347;
+}
+
+
+.pain-point a {
   color: black;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.pain-point p {
+  color: #606060;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.quote-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 60px;
+  padding-left: 0%;
+  padding-right: 0%;
+}
+
+.quote {
+  background: #000; /* Set background to black */
+  color: #fff; /* Set text color to white */
+  padding: 20px;
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adjust shadow for better visibility */
+  flex-basis: calc(50% - 20px);
+  margin: 10px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.quote p {
+  margin: 0 0 10px;
+  color: white;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.quote .user-info {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.quote .user-info img {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
 }
 
 .quote .user {
   font-weight: bold;
+  color: #fff;
 }
+
+.quote .user-role {
+  color: #ddd;
+}
+
+
 
 footer {
   background: #000;
@@ -228,26 +372,28 @@ footer button:hover {
   background-color: #ddd;
 }
 
-/* Media Queries for Mobile Responsiveness */
 @media (max-width: 768px) {
   .hero-content {
     flex-direction: column;
     text-align: center;
   }
 
-  .hero-text, .hero-form {
+  .hero-text,
+  .hero-form {
     max-width: 100%;
     margin-top: 20px;
   }
 
-  .pain-point-cards, .quote-cards {
+  .pain-point-cards,
+  .quote-cards {
     padding-left: 5%;
     padding-right: 5%;
     flex-direction: column;
     align-items: center;
   }
 
-  .pain-point, .quote {
+  .pain-point,
+  .quote {
     flex-basis: 100%;
     margin: 10px 0;
   }
@@ -266,7 +412,8 @@ footer button:hover {
     padding: 20px 10px;
   }
 
-  .pain-point-cards, .quote-cards {
+  .pain-point-cards,
+  .quote-cards {
     padding-left: 0;
     padding-right: 0;
   }
