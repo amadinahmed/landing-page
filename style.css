@@ -49,12 +49,12 @@ header {
   text-align: left;
 }
 
-.hero-text h2{
+.hero-text h2 {
   font-size: 52px;
   font-weight: 700;
 }
 
-.hero-text p{
+.hero-text p {
   font-size: 16px;
   font-weight: 400;
   width: 80%;
@@ -161,16 +161,18 @@ header {
 }
 
 .problem-statement p {
-  color:#606060;
+  color: #606060;
   padding-top: 20px;
   font-size: 24px;
+  font-weight: 400;
 }
 
 .problem-statement h2 {
-  color:#288347;
+  color: #288347;
   padding-top: 20px;
   font-size: 40px;
   border-radius: 20px;
+  font-weight: 600;
 }
 
 .pain-points,
@@ -214,15 +216,6 @@ header {
   padding-right: 0%;
 }
 
-.pain-point-cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-top: 60px;
-  padding-left: 10%;
-  padding-right: 10%;
-}
-
 .pain-point {
   background: #FDFCFA;
   padding: 20px;
@@ -239,7 +232,6 @@ header {
   margin-top: 20px; /* Add space between rows */
 }
 
-
 .quote {
   background: #f9f9f9;
   padding: 20px;
@@ -249,7 +241,6 @@ header {
   margin: 10px;
   text-align: left;
 }
-
 
 .pain-point h3,
 .quote p {
@@ -268,7 +259,6 @@ header {
 .problem-statement h2 {
   color: #288347;
 }
-
 
 .pain-point a {
   color: black;
@@ -335,44 +325,106 @@ header {
   color: #ddd;
 }
 
-
-
 footer {
   background: #000;
   color: #fff;
-  padding: 20px;
   width: 100%;
+  text-align: center;
+}
+
+.footer-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 20px;
+  background-color: #000;
+  color: white;
+  border-radius: 8px;
 }
 
-.footer-content {
+.footer-cta {
   text-align: left;
 }
 
-.footer-logo {
+.footer-cta h3 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.footer-cta p {
+  font-size: 14px;
+  margin: 0;
+  color: #b3b3b3;
+}
+
+.footer-button {
   text-align: right;
 }
 
-.footer-button img {
-  max-width: 100px;
-}
-
-footer button {
-  background-color: #fff;
-  color: #000;
+.footer-button button {
+  background-color: #22C459;
+  color: #fff;
   border: none;
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 5px;
 }
 
-footer button:hover {
-  background-color: #ddd;
+.footer-button button:hover {
+  background-color: #606060;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 0;
+  background-color: #f7f7f7;
+  color: black;
+}
+
+.footer-content-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-content-center h3 {
+  font-size: 40px;
+  font-weight: 500;
+  margin-right: 20px;
+}
+
+.footer-content-center p {
+  font-size: 14px;
+  color: #606060;
+  margin: 0;
+  width: 40%;
+  font-weight: 400;
 }
 
 @media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-cta,
+  .footer-button {
+    max-width: 100%;
+    margin-top: 20px;
+  }
+
+  .footer-content-center {
+    flex-direction: column;
+  }
+
+  .footer-content-center h3,
+  .footer-content-center p {
+    margin: 10px 0;
+  }
+
   .hero-content {
     flex-direction: column;
     text-align: center;
@@ -382,6 +434,10 @@ footer button:hover {
   .hero-form {
     max-width: 100%;
     margin-top: 20px;
+  }
+
+  .hero-text h2 {
+    font-size: 32px; /* Scale down for mobile */
   }
 
   .pain-point-cards,
@@ -416,5 +472,14 @@ footer button:hover {
   .quote-cards {
     padding-left: 0;
     padding-right: 0;
+  }
+
+  .problem-statement {
+    width: 90%;
+    padding: 40px 20px;
+  }
+
+  body {
+    overflow-x: hidden; /* Prevent horizontal overflow */
   }
 }

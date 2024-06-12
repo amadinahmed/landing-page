@@ -27,3 +27,16 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   });
 });
+
+
+/*
+document.getElementById('joinButton').addEventListener('click', function() {
+  document.getElementById('joinForm').scrollIntoView({behavior: 'smooth'});
+});
+
+
+*/
+
+document.getElementById('joinButton').addEventListener('click', function() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
